@@ -1,0 +1,2 @@
+docker volume create %1
+docker run --rm -v %1:/data_backup -v %cd%:/backup ubuntu bash -c "cd /data_backup && gunzip -c /backup/%1.tar.gz > /backup/%1.tar && tar xvf /backup/%1.tar --strip 1 && rm /backup/%1.tar"
